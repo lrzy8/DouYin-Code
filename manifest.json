@@ -1,0 +1,35 @@
+
+{
+    "manifest_version": 3,
+    "name": "懒人抖音养号插件",
+    "version": "1.2",
+    "description": "自动刷抖音、点赞，轻松养号",
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icon16.png",
+            "32": "icon32.png",
+            "48": "icon48.png",
+            "128": "icon128.png"
+        }
+    },
+    "permissions": [
+        "activeTab",
+        "tabs",
+        "storage",
+        "scripting"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://www.douyin.com/*"],
+            "js": ["content.js"],
+            "run_at": "document_end"
+        }
+    ],
+    "host_permissions": [
+        "https://www.douyin.com/*"
+    ]
+}
